@@ -1,0 +1,463 @@
+[11:21 pm, 08/11/2022] Ishaan: groupa=[]
+groupb=[]
+groupc=[]
+def cricket():
+    a=int(input("enter no. of students playing cricket:"))
+    for i in range(a):
+        b=int(input("enter roll.no of students playing cricket:"))
+        groupa.append(b)
+    print("roll.no. of students playing cricket are:",groupa)
+def badminton():
+    a1=int(input("enter no. of students playing badminton:"))
+    for i in range(a1):
+        b1=int(input("enter roll.no of students playing badminton:"))
+        groupb.append(b1)
+    print("roll.no. of students playing badminton are:",groupb)
+def football():
+    a2=int(input("enter no. of students playing football:"))
+    for i in range(a2):
+        b2=int(input("enter roll.no of students playing football :"))
+        groupc.append(b2)
+    print("roll.no. of students playing football are:",groupc)
+def first_condition():
+    for i in groupa:
+        if i in groupb:
+            print("roll.no. of students who play both cricket and badminton are:",i)
+def second_condition():
+    D=groupa+groupb
+    for i in groupa:
+        if i in groupb:
+            D.remove(i)
+    for j in groupb:
+        if j in groupa:
+            D.remove(j)
+    print("roll.no of students who either play cricket or badminton are:",D)
+def thrid_condition():
+    for i in groupa:
+        if i in groupc:
+            groupc.remove(i)
+    for j in groupb:
+        if j in groupc:
+            groupc.remove(j)
+    w=len(groupc)
+    print("no. of students who play neither cricket nor badminton are:",w)
+def fourth_condition():
+    f=[]
+    for i in groupa:
+        if i in groupc:
+            f.append(i)
+    for j in groupb:
+        if j in f:
+            f.remove(j)
+    w1=len(f)
+    print("no of students who play cricket and football but not badminton are:",w1)
+cricket()
+badminton()
+football()
+s=int(input('''enter your choice:
+       PRESS 1: LIST OF STUDENTS WHO PLAY  BOTH CRICKET AND BADMINTON
+       PRESS 2: LIST OF STUDENTS WHO PLAY EITHER CRICKET OR BADMINTON BUT NOT BOTH
+       PRESS 3: NO. OF STUDENTS WHO PLAY NEITHER CRICKET NOR BADMINTON
+       PRESS 4: NO. OF STUDENTS WHO PLAY CRICKET AND FOOTBALL BUT NOT BADMINTON'''))
+
+if s==1:
+    first_condition()
+if s==2:
+    second_condition()
+if s==3:
+    thrid_condition()
+if s==4:
+    fourth_condition()
+[11:21 pm, 08/11/2022] Ishaan: n=int(input("enter number of students in class "))
+marks=[]
+
+def enter_marks():
+    for i in range(n):
+        a=int(input("enter marks scored scored by students "))
+        marks.append(a)
+    print("marks scored by the students are ",marks)
+
+def avg_marks():
+    sum=0
+    for i in marks:
+        if i!=-1:
+            sum=sum+i
+    avg=sum/len(marks)
+    print("average marks scored by students in class test",avg)
+
+def max_marks():
+    max=marks[0]
+    for i in marks:
+        if i>max:
+            max=i
+    print("maximum marks scored by student in class test",max )
+
+def min_marks():
+    min=marks[0]
+    for i in marks:
+        if i<min:
+            min=i
+    print("mininum marks scored by students in class test",min)
+
+def high_freq():
+    d=[]
+    for i in marks:
+        if i not in d:
+            d.append(i)
+    d.sort
+    for j in d:
+        print("number of times marks are repeated is",j ,"marks=",marks.count(j))
+
+def absent():
+    ab=0
+    for i in marks:
+        if i==-1:
+            ab=ab+1
+    print("number of students absent for class test are",ab)
+
+enter_marks()
+avg_marks()
+max_marks()
+min_marks()
+high_freq()
+absent()
+[11:21 pm, 08/11/2022] Ishaan: a= []
+b= []
+n = int(input( "enter  number of rows= ") )
+m = int(input("enter number of columns= "))
+for i in range(n):
+    c =[]
+    for j in range(m):
+        c.append(int(input("\nenter the number= ")))
+    a.append(c)
+print("matrix a= ")
+for i in range(n):
+    print("\n")
+    for	j in range(m):
+        print(a[i][j],end=" ")
+for i in range(n):
+    d = []
+    for	j in range(m):
+        d.append(int(input("\nenter the number= ")))
+    b.append(d)
+print("matrix b= ")
+for	i in range (n):
+    print("\n")
+    for j in range(m):
+        print(b[i][j], end=" ")
+print("\n")
+
+def add(a,b):
+    sum=[],[]
+    addition = 0
+    print("addition of given matrix is= ")
+    for i in range(n):
+        for j in range(m):
+            addition=a[i][j] + b[i][j]
+            sum[i].append(addition)
+    print("\n",sum[0][0],sum[0] [1],"\n",sum[1][0],sum[1][1])
+
+def sub(a,b):
+    diff= [], []
+    subtraction= 0
+    print("subtraction of given matrix is= ")
+    for i in range(n):
+        for j in range(m):
+            subtraction= a[i][j]-b[i][j]
+            diff[i].append(subtraction)
+    print("\n",diff[0][0],diff[0][1],"\n",diff[1][0],diff[1][1])
+
+def	multi(a,b):
+    mult=  [0,0] , [0,0]
+    multiplication=   0
+    print("multiplication of given matrix  is=  ")
+    for	i  in  range(n):
+        for	j  in   range(m):
+            for	k  in  range(n):
+                mult[i][j]+=  a[i][k] * b[k][j]
+    print("\n",mult[0][0],mult[0][1],"\n",mult[1][0],mult[1][1])
+
+def trans(a, b):
+    trans_a= [0,0],[0,0]
+    trans_b= [0,0],[0,0]
+    print("\nTranspose of given matrix a is= ")
+    for i in range (n):
+        for j in range (m):
+            trans_a[i][j]=a[j][i]
+    print("\n",trans_a[0][0],trans_a[0][1],"\n",trans_a[1][0],trans_a[1][1])
+    print("\nTranspose  of  given matrix  b is= ")
+    for k in range(n):
+        for l in range(m):
+            trans_b[l][k]=b[k][l]
+    print("\n", trans_b[0][0],trans_b[0][1], "\n", trans_b[1][0], trans_b[1][1])
+
+while(True):
+    print("Enter which operation would you like to perform: ")
+    ch=int(input("Enter any of these numbers for specific operation:\n"
+        "1.Addition of matrix\n"
+        "2.Subtraction of matrix\n"
+        "3.Multiplication of matrix\n"
+        "4.Transpose  of  matrix\n"))
+    if ch==1:
+        add(a, b)
+    elif ch==2:
+        sub(a, b)
+    elif ch==3:
+        multi(a, b)
+    elif ch==4:
+        trans(a, b)
+    else:
+        break
+[11:21 pm, 08/11/2022] Ishaan: #include <iostream>
+#include <string.h>
+using namespace std;
+class node
+{
+	friend class list;
+	int prnno;
+	char name[30];
+	node *next;//pointer to object
+public:
+	node(int d,char s[10])
+	{
+	prnno=d;
+		strcpy(name,s);
+		next=NULL;
+	}
+};
+class list
+{
+	node *head;
+public:
+	list()
+    {
+		head=NULL;
+    }
+void display()
+{
+	node *ptr;
+	ptr=head;
+	cout<<"\n info is : \n";
+	while(ptr!=NULL)
+	{
+		cout<<"\n"<<ptr->prnno;
+		cout<<"\t"<<ptr->name;
+		ptr=ptr->next;
+	}
+}
+	void insertmember();
+	void createmember();
+	void insertpresident();
+	void insertsecretary();
+	void deletemember();
+	void delete1();
+	void deletesecretary();
+	void deletepresident();
+	void count();
+	
+	void concatinate(list,list);
+};
+void list::insertmember()
+{
+	int prnno;
+	char name[30];
+	node *ptr,*temp;
+	cout<<"\n enter prnno : ";
+	cin>>prnno;
+	cout<<"\n enter name : ";
+	cin>>name;
+	temp=new node(prnno,name);
+	if(head==NULL)
+	{
+		head=temp;
+	}
+	else
+	{
+		ptr=head;
+		while(ptr->next!=NULL)
+		{
+			ptr=ptr->next;
+		}
+		ptr->next=temp;
+	}
+}
+void list::insertpresident()
+{
+	int prnno;
+	char name[30];
+		node *temp;
+		cout<<"\n enter prnno : ";
+		cin>>prnno;
+		cout<<"\n enter name : ";
+		cin>>name;
+		temp=new node(prnno,name);
+		temp->next=head;
+		head=temp;
+}
+void list::insertsecretary()
+{
+	int prnno;
+	char name[30];
+			node *ptr,*temp;
+			cout<<"\n enter prnno : ";
+			cin>>prnno;
+			cout<<"\n enter name : ";
+			cin>>name;
+			temp=new node(prnno,name);
+			ptr=head;
+			while(ptr->next!=NULL)
+			{
+				ptr=ptr->next;
+			}
+			ptr->next=temp;
+}
+void list::createmember()
+{
+	int ch;
+	char ans;
+	do
+	{
+	cout<<"\n choose : ";
+	cout<<"\n 1-member\n 2-secretary\n 3-president";
+	cin>>ch;
+	switch(ch)
+	{
+	case 1: insertmember();
+		    break;
+	case 2: insertsecretary();
+		    break;
+	case 3: insertpresident();
+		    break;
+	default:cout<<"invalid choice ! ";
+		    break;
+	}
+	cout<<"\n insert more ?";
+	cin>>ans;
+	}while(ans=='y');
+}
+void list::delete1()
+{
+		int ch;
+		char ans;
+		do
+		{
+		cout<<"\n choose : ";
+		cout<<"\n 1-member\n 2-secretary\n 3-president";
+		cin>>ch;
+		switch(ch)
+		{
+		case 1:deletemember();
+			   break;
+		case 2:deletesecretary();
+			   break;
+		case 3:deletepresident();
+			   break;
+		default:cout<<"invalid choice ! ";
+			    break;
+		}
+		cout<<"\n delete more ?";
+		cin>>ans;
+		}while(ans=='y');
+	}
+void list::deletesecretary()
+{
+	node *ptr,*prev;
+	ptr=head;
+	while(ptr->next!=NULL)
+	{
+		prev=ptr;
+		ptr=ptr->next;
+	}
+		prev->next=NULL;
+		delete ptr;
+	    cout<<"\n deleted";
+}
+void list::deletepresident()
+{
+	node *ptr;
+		ptr=head;
+		head=head->next;
+		delete ptr;
+		cout<<"\n deleted";
+}
+void list::deletemember()
+{
+	node *ptr,*prev;
+	int p;
+	cout<<"\n enter prnno. to delete : ";
+	cin>>p;
+			ptr=head;
+			while(ptr->next!=NULL)
+			{
+				prev=ptr;
+				ptr=ptr->next;
+				if(ptr->prnno==p)
+				  break;
+			}
+			if(ptr->next==NULL)
+			{
+				cout<<"\n data not found !";
+			}
+			else if(ptr->prnno==p)
+			{
+				prev->next=ptr->next;
+				ptr->next=NULL;
+				delete ptr;
+				cout<<"\n deleted";
+			}
+}
+void list::count()
+{
+	node *ptr;
+	int cnt=0;
+	ptr=head;
+	while(ptr!=NULL)
+	{
+		cnt++;
+		ptr=ptr->next;
+	}
+	cout<<"\n total no. of nodes is : "<<cnt;
+}
+
+void list::concatinate(list s1,list s2)
+	{
+	node *ptr;
+	ptr=s1.head;
+	while(ptr->next!=NULL)
+		ptr=ptr->next;
+		ptr->next=s2.head;
+		s1.display();
+	}
+int main()
+{
+	int ch;
+	char ans;
+	list sll1,sll2,s1,s2;
+	do
+	{
+		cout<<"\n enter your choice : ";
+	    cout<<"\n 1-create member\n 2-display\n 3-delete member\n 4-no. of nodes\n 5-concatenate";
+        cin>>ch;
+switch(ch)
+{
+   case 1: sll1.createmember();
+		   break;
+   case 2: sll1.display();
+		   break;
+   case 3: cout<<"\n enter the nodes to be deleted in list : ";
+		   sll1.delete1();
+		   break;
+   case 4: cout<<"\n no. of nodes is:";
+		   sll1.count();
+		   break;
+   case 5:  sll2.createmember();
+		   sll1.concatinate(sll1,sll2);
+		   break;
+   default: cout<<"\n invalid choice ! ";
+		    break;
+ }
+		   cout<<"\n\n do you want to continue ? ";
+		   cin>>ans;
+	}while(ans=='y');
+	return 0;
+}
