@@ -1,0 +1,87 @@
+#include<iostream>
+using namespace std;
+#define MAX 5
+
+class queue{
+int f,r;
+int job[MAX];
+public:
+    queue(){
+    f=r=-1;
+    }
+    void addjob(int);
+    void deljob();
+    void display();
+    bool full();
+    bool empty();
+    
+};
+
+bool queue::full(){
+if (r>=MAX-1)
+return 1;
+return 0;
+
+}
+
+bool queue::empty(){
+if (f==-1)
+return 1;
+return 0;
+}
+
+void queue::addjob(int x){
+if(full())
+cout<<"Overflow\n";
+else{
+if(f==-1)
+f++;
+r++;
+job[r]=x;
+cout<<"Job added\n";
+}
+
+}
+
+void queue::deljob(){
+if(empty())
+cout<<"Underflow\n";
+else{
+cout<<"Deleted job"<<job[f]<<endl;
+f++;
+
+}
+}
+
+void queue::display(){
+cout<<"Job in queue: ";
+for(int i=f;i<=r; i++)
+cout<<job[i]<<" ";
+cout<<endl;
+
+}
+
+int main(){
+queue q;
+int n;
+do{
+cout<<"\nEnter your choice\n1.add job\n2.del job\n 3.display\n4. exit";
+cin>>n;
+switch(n){
+case 1:cout<<"Enter job to add";
+        int x;
+        cin>>x;
+        q.addjob(x);
+        break;
+case 2:q.deljob();
+        break;
+case 3: q.display();
+break;
+case 4: cout<<"Exiting\n";
+break;
+default: cout<<"Invalid choice\n";
+}
+
+}while(n!=4);
+return 0;
+}
